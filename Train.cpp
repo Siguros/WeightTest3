@@ -580,6 +580,7 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 														int output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														outputweight = output2 - output1;
 														std::cout << deltaWeight1[jj][k] << " " << outputweight << std::endl;
+														std::cout << output2<<std::endl;
 													}
 												}
 												// count depression max to depression or potentiation max to potentiation
