@@ -549,6 +549,8 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 								//int count = 0;
 								if (param->NCellmode) {
 									//std::cout << countt << std::endl;
+									int inputweight=0;
+									int outputweight=0;
 										int PulseRate = param->NumcellPerSynapse * param->PulseNum;
 										int a = param->PulseNum;
 										for (int i = 0; i < param->NumcellPerSynapse; i++) {
@@ -569,8 +571,17 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 												}
 													
 
-											
+
 												arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
+												if(jj==0){
+													if(k==0){
+														int output1= arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+														arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
+														int output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+														outputweight = output2 - output1;
+														std::cout << deltaWeight1[jj][k] << " " << outputweight << std::endl;
+													}
+												}
 												// count depression max to depression or potentiation max to potentiation
 												//std::cout << countt << std::endl;
 											}

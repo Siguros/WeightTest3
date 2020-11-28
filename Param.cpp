@@ -47,16 +47,16 @@ Param::Param() {
 	
 	/* Algorithm parameters */
 	numTrainImagesPerEpoch = 8000;	// # of training images per epoch
-	totalNumEpochs = 40;	// Total number of epochs
+	totalNumEpochs = 1;	// Total number of epochs
 	interNumEpochs = 1;		// Internal number of epochs (print out the results every interNumEpochs)
 	nInput = 400;     // # of neurons in input layer
 	nHide = 100;      // # of neurons in hidden layer
 	nOutput = 10;     // # of neurons in output layer
 	lnum=1;
-	alpha1 = 0.8;	// Learning rate for the weights from input to hidden layer
-	alpha2 = 0.4;// Learning rate for the weights from hidden to output layer
-	alpha1=alpha1*lnum;
-	alpha2=alpha2*lnum;
+	alpha1 = 0.4;	// Learning rate for the weights from input to hidden layer
+	alpha2 = 0.2;// Learning rate for the weights from hidden to output layer
+	//alpha1=alpha1*lnum;
+	//alpha2=alpha2*lnum;
 	maxWeight = 1;	// Upper bound of weight value
 	minWeight = -1;	// Lower bound of weight value
     /*Optimization method 
@@ -85,7 +85,7 @@ Param::Param() {
 	arrayWireWidth = 100;	// Array wire width (nm)
 	processNode = 32;	// Technology node (nm)
 	clkFreq = 2e9;		// Clock frequency (Hz)
-	NumcellPerSynapse =16;
+	NumcellPerSynapse =1;
 	NCellmode = true;
 	PulseOperate = false;
 	PulseNum =1; //default pulsenum=1;
