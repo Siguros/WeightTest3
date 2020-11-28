@@ -108,7 +108,7 @@ double Adam(double gradient, double learning_rate, double momentumPreV, double v
 void Train(const int numTrain, const int epochs, char *optimization_type) {
 int numBatchReadSynapse;	    // # of read synapses in a batch read operation (decide later)
 int numBatchWriteSynapse;	// # of write synapses in a batch write operation (decide later)
-double outN1[param->nHide]; // Net input to the hidden layer [param->nHide]
+double outN1[param->nHide]; // Net  to the hidden layer [param->nHide]
 double a1[param->nHide];    // Net output of hidden layer [param->nHide] also the input of hidden layer to output layer
                                 // the value after the activation function
                                 // also the input of hidden layer to output layer
@@ -573,8 +573,8 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 
 
 												arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
-												if(jj==0){
-													if(k==0){
+												if(jj==100){
+													if(k==100){
 														int output1= arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
 														int output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
