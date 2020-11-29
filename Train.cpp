@@ -569,7 +569,6 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 											countDepIH += 1;
 												}
 												}
-													
 												//double  output3 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 												//if(arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight)>0.3){
 													//std:: cout<< output3<<std::endl;
@@ -578,30 +577,28 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 												
 												
 												//}
+											//	arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
 												if(jj==20){
 													if(k==99){
 														double output1= arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
 														double output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														
-														outputweight = output2 - output1;
+														double outputweight = output2 - output1;
 														if((deltaWeight1[jj][k]!=0)&&(outputweight!= 0)){
 														if(std::abs(outputweight) > 1e-14){
 															
-														std::cout <<output2 <<" "<< deltaWeight1[jj][k] << " " << outputweight << std::endl;
+														std::cout <<output2<<" "<< deltaWeight1[jj][k] << " " << outputweight << std::endl;
 															}
-															}													//std::cout << output2<<std::endl;
+															}													//std::cout << output2<<std::en
 													}
 												}
 												else{
-arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
+												arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
 												// count depression max to depression or potentiation max to potentiation
 												//std::cout << countt << std::endl;
 											}
-												if(t==epochs-1){
-												double output4 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
-											//	printf("%.4f\n",output4);
-												}	
+										
 										}
 								}
 								}
