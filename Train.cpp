@@ -573,14 +573,14 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 
 
 												arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
-												if(jj==100){
-													if(k==100){
+												if(jj==20){
+													if(k==99){
 														int output1= arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
 														int output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														outputweight = output2 - output1;
-														std::cout << deltaWeight1[jj][k] << " " << outputweight << std::endl;
-														std::cout << output2<<std::endl;
+														std::cout << deltaWeight1[jj][k] << " " << output2/outputweight << std::endl;
+
 													}
 												}
 												// count depression max to depression or potentiation max to potentiation
@@ -1128,10 +1128,10 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 					totalAvgDepIH = (double)countDepIH/counttotalDepIH;
 					totalAvgPotenHO = (double)countPotenHO/counttotalPotenHO;
 					totalAvgDepHO =(double)countDepHO/counttotalDepHO;
-											std::cout<< "countPotenIH: "<< countPotenIH<< "ProbabilityIH:"<< (double)countPotenIH/counttotalPotenIH<<std::endl;
-											std::cout<< "countDepIH: "<<countDepIH<<"ProbabilityIH:"<< (double)countDepIH/counttotalDepIH<<std::endl;
-											std::cout<< "countPotenHO: "<< countPotenHO<<"ProbabilityHO:"<< (double)countPotenHO/counttotalPotenHO<<std::endl;
-											std::cout<< "countDepHO: "<<countDepHO<<"ProbabilityHO:"<< (double)countDepHO/counttotalDepHO<<std::endl;
+											//std::cout<< "countPotenIH: "<< countPotenIH<< "ProbabilityIH:"<< (double)countPotenIH/counttotalPotenIH<<std::endl;
+											//std::cout<< "countDepIH: "<<countDepIH<<"ProbabilityIH:"<< (double)countDepIH/counttotalDepIH<<std::endl;
+											//std::cout<< "countPotenHO: "<< countPotenHO<<"ProbabilityHO:"<< (double)countPotenHO/counttotalPotenHO<<std::endl;
+											//std::cout<< "countDepHO: "<<countDepHO<<"ProbabilityHO:"<< (double)countDepHO/counttotalDepHO<<std::endl;
 												}	
 		}
     }
