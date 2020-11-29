@@ -549,8 +549,8 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 								//int count = 0;
 								if (param->NCellmode) {
 									//std::cout << countt << std::endl;
-									int inputweight=0;
-									int outputweight=0;
+									double inputweight=0;
+									double outputweight=0;
 										int PulseRate = param->NumcellPerSynapse * param->PulseNum;
 										int a = param->PulseNum;
 										for (int i = 0; i < param->NumcellPerSynapse; i++) {
@@ -570,23 +570,40 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 												}
 												}
 													
-
-
-												arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
-												if(jj==100){
-													if(k==100){
-														int output1= arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+												//double  output3 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+												//if(arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight)>0.3){
+													//std:: cout<< output3<<std::endl;
+												//	std::cout<<jj<<" "<<k<<std::endl;
+												
+												
+												
+												//}
+												if(jj==20){
+													if(k==99){
+														double output1= arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
 														arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
-														int output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+														double output2 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+														
 														outputweight = output2 - output1;
-														std::cout << deltaWeight1[jj][k] << " " << outputweight << std::endl;
-														std::cout << output2<<std::endl;
+														if((deltaWeight1[jj][k]!=0)&&(outputweight!= 0)){
+														if(std::abs(outputweight) > 1e-14){
+															
+														std::cout <<output2 <<" "<< deltaWeight1[jj][k] << " " << outputweight << std::endl;
+															}
+															}													//std::cout << output2<<std::endl;
 													}
 												}
+												else{
+arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, i);
 												// count depression max to depression or potentiation max to potentiation
 												//std::cout << countt << std::endl;
 											}
+												if(t==epochs-1){
+												double output4 = arrayIH->ConductanceToWeight(jj,k,param->maxWeight,param->minWeight);
+											//	printf("%.4f\n",output4);
+												}	
 										}
+								}
 								}
 								else {
 									arrayIH->WriteCell(jj, k, deltaWeight1[jj][k], weight1[jj][k], param->maxWeight, param->minWeight, true, 0);
@@ -1128,10 +1145,10 @@ double s2[param->nOutput];  // Output delta from hidden layer to the output laye
 					totalAvgDepIH = (double)countDepIH/counttotalDepIH;
 					totalAvgPotenHO = (double)countPotenHO/counttotalPotenHO;
 					totalAvgDepHO =(double)countDepHO/counttotalDepHO;
-											std::cout<< "countPotenIH: "<< countPotenIH<< "ProbabilityIH:"<< (double)countPotenIH/counttotalPotenIH<<std::endl;
-											std::cout<< "countDepIH: "<<countDepIH<<"ProbabilityIH:"<< (double)countDepIH/counttotalDepIH<<std::endl;
-											std::cout<< "countPotenHO: "<< countPotenHO<<"ProbabilityHO:"<< (double)countPotenHO/counttotalPotenHO<<std::endl;
-											std::cout<< "countDepHO: "<<countDepHO<<"ProbabilityHO:"<< (double)countDepHO/counttotalDepHO<<std::endl;
+											//std::cout<< "countPotenIH: "<< countPotenIH<< "ProbabilityIH:"<< (double)countPotenIH/counttotalPotenIH<<std::endl;
+										//	std::cout<< "countDepIH: "<<countDepIH<<"ProbabilityIH:"<< (double)countDepIH/counttotalDepIH<<std::endl;
+										//	std::cout<< "countPotenHO: "<< countPotenHO<<"ProbabilityHO:"<< (double)countPotenHO/counttotalPotenHO<<std::endl;
+										//	std::cout<< "countDepHO: "<<countDepHO<<"ProbabilityHO:"<< (double)countDepHO/counttotalDepHO<<std::endl;
 												}	
 		}
     }

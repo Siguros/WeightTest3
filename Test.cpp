@@ -143,6 +143,11 @@ void Validate() {
 						sumArrayReadEnergyIH += Isum * readVoltageIH * readPulseWidthIH;
 						int outputDigits = 2*(CurrentToDigits(Isum, IsumMax-IsumMin)-CurrentToDigits(inputSum, IsumMax-IsumMin));
 						outN1[j] += DigitsToAlgorithm(outputDigits, pSumMaxAlgorithm);
+					
+					for(int k=0; k<param->nInput; k++){
+					double output4 = arrayIH->ConductanceToWeight(j,k,param->maxWeight,param->minWeight);
+					//printf("%.4f\n",output4);
+					}
 					} 
                     else {
                             bool digitalNVM = false; 

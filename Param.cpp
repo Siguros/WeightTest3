@@ -47,7 +47,7 @@ Param::Param() {
 	
 	/* Algorithm parameters */
 	numTrainImagesPerEpoch = 8000;	// # of training images per epoch
-	totalNumEpochs = 1;	// Total number of epochs
+	totalNumEpochs = 10;	// Total number of epochs
 	interNumEpochs = 1;		// Internal number of epochs (print out the results every interNumEpochs)
 	nInput = 400;     // # of neurons in input layer
 	nHide = 100;      // # of neurons in hidden layer
@@ -85,7 +85,7 @@ Param::Param() {
 	arrayWireWidth = 100;	// Array wire width (nm)
 	processNode = 32;	// Technology node (nm)
 	clkFreq = 2e9;		// Clock frequency (Hz)
-	NumcellPerSynapse =1;
+	NumcellPerSynapse=1;
 	NCellmode = true;
 	PulseOperate = false;
 	PulseNum =1; //default pulsenum=1;

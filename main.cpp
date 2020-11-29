@@ -167,7 +167,7 @@ int main() {
 			correctav += (double)correct / param->numMnistTestImages * 100;
 			if (i == param->totalNumEpochs / param->interNumEpochs) {
 				correctav = correctav / 5;
-				printf("AV: %.2f\n", correctav);
+				//printf("AV: %.2f\n", correctav);
 			}
 			
 		}

@@ -59,7 +59,7 @@ void WeightInitialize() {
         for (int j = 0; j < param->nInput; j++) {
            weight1[i][j] = (double)(rand() % 7 +(-3) ) / 3;   // random number: 0, 0.33, 0.66 or 1
 			//weight1[i][j] = (double)(rand() % 4) / 3;
-            //printf("weight 1 is %.4f\n", weight1[i][j]);
+           // printf("%.4f\n", weight1[i][j]);
         }
     }
     /* Initialize weights for the hidden layer */
